@@ -13,8 +13,10 @@
 
 <!-- Preload del retrato hero · acelera Largest Contentful Paint -->
 <link rel="preload" as="image" href="images/dr-gerardo-portrait.webp" type="image/webp" fetchpriority="high" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Preload fuentes críticas · self-hosted, sin conexiones externas -->
+<link rel="preload" as="font" type="font/woff2" href="fonts/fraunces-variable.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-400.woff2" crossorigin />
 
 <link rel="canonical" href="https://drgerardofelix.com/" />
 
@@ -94,9 +96,46 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..600,30&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<!-- Fuentes self-hosted · cero peticiones externas, font-display: swap evita FOIT -->
+<style>
+  /* Fraunces variable: opsz (9-144), wght (300-600), SOFT (30) */
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300 600;
+    src: url('fonts/fraunces-variable.woff2') format('woff2-variations');
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 300 600;
+    src: url('fonts/fraunces-variable-italic.woff2') format('woff2-variations');
+  }
+  /* Inter · pesos individuales (no variable para compatibilidad amplia) */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('fonts/inter-400.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 500;
+    src: url('fonts/inter-500.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+    src: url('fonts/inter-600.woff2') format('woff2');
+  }
+</style>
 
 <template id="__bundler_thumbnail">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet">
@@ -1772,12 +1811,29 @@
     // ─── Sticky brandbar visual ───
     (function () {
       const bar = document.getElementById('js-brandbar');
-      const onScroll = () => {
-        if (window.scrollY > 8) bar.classList.add('is-stuck');
-        else bar.classList.remove('is-stuck');
-      };
+      if (!bar) return;
+
+      let ticking = false;
+      let isStuck = false;
+
+      function update() {
+        const shouldStick = window.scrollY > 8;
+        if (shouldStick !== isStuck) {
+          isStuck = shouldStick;
+          bar.classList.toggle('is-stuck', shouldStick);
+        }
+        ticking = false;
+      }
+
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      }
+
       window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
+      update();
     })();
 
     // ─── Estado abierto / cerrado (zona horaria de Sonora) ───
