@@ -10,6 +10,12 @@
 <meta name="author" content="Dr. Gerardo Félix Ramos" />
 <meta name="keywords" content="pediatra Hermosillo, pediatra intensivista, Dr. Gerardo Félix, Hospital San José Hermosillo, medicina crítica pediátrica, consulta pediátrica Sonora, ecografía pediátrica" />
 <meta name="theme-color" content="#2B4A6B" />
+
+<!-- Preload del retrato hero · acelera Largest Contentful Paint -->
+<link rel="preload" as="image" href="images/dr-gerardo-portrait.webp" type="image/webp" fetchpriority="high" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link rel="canonical" href="https://drgerardofelix.com/" />
 
 <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
@@ -45,7 +51,7 @@
   "medicalSpecialty": ["Pediatrics", "Pediatric Critical Care"],
   "description": "Pediatra intensivista en Hermosillo, Sonora. Atención pediátrica con la experiencia clínica de un médico de terapia intensiva.",
   "url": "https://drgerardofelix.com/",
-  "image": "https://drgerardofelix.com/images/dr-gerardo-portrait.png",
+  "image": "https://drgerardofelix.com/images/dr-gerardo-portrait.jpg",
   "telephone": "+52-644-146-0765",
   "alumniOf": [
     { "@type": "CollegeOrUniversity", "name": "Universidad Autónoma de Guadalajara" },
@@ -1364,7 +1370,10 @@
 
         <div class="hero-right">
           <figure class="portrait" aria-label="Retrato del Dr. Gerardo Félix">
-            <img src="images/dr-gerardo-portrait.png" alt="Dr. Gerardo Félix Ramos, pediatra en su consultorio." />
+            <picture>
+              <source srcset="images/dr-gerardo-portrait.webp" type="image/webp">
+              <img src="images/dr-gerardo-portrait.jpg" alt="Dr. Gerardo Félix Ramos, pediatra en su consultorio." fetchpriority="high" decoding="async" width="1200" height="1500" />
+            </picture>
           </figure>
           <div class="portrait-caption">
             <span>Dr. Gerardo Félix Ramos</span>
@@ -1382,7 +1391,10 @@
       <div class="sobre-grid">
         <div class="sobre-photo">
           <figure class="figure" aria-label="El Dr. Félix en consulta con una familia">
-            <img src="images/dr-gerardo-consulta.png" alt="El Dr. Félix conversando con una madre y su hijo en consulta." loading="lazy" />
+            <picture>
+              <source srcset="images/dr-gerardo-consulta.webp" type="image/webp">
+              <img src="images/dr-gerardo-consulta.jpg" alt="El Dr. Félix conversando con una madre y su hijo en consulta." loading="lazy" decoding="async" />
+            </picture>
           </figure>
           <div class="figure-caption">Cada consulta empieza por escuchar a la familia.</div>
         </div>
@@ -1586,32 +1598,50 @@
       <div class="ig-grid">
         <figure>
           <a href="https://www.instagram.com/p/DYAg3Lzj2yp/?img_index=1" target="_blank" rel="noopener" aria-label="Mi hijo vomitó. ¿Cuándo es urgente?">
-            <img src="images/ig-1.png" alt="Publicación: Mi hijo vomitó. ¿Cuándo es urgente?" loading="lazy" />
+            <picture>
+              <source srcset="images/ig-1.webp" type="image/webp">
+              <img src="images/ig-1.jpg" alt="Publicación: Mi hijo vomitó. ¿Cuándo es urgente?" loading="lazy" decoding="async" />
+            </picture>
           </a>
         </figure>
         <figure>
           <a href="https://www.instagram.com/p/DXxOJ95jxIx/?img_index=1" target="_blank" rel="noopener" aria-label="Mi hijo respira raro. ¿Cuándo es urgente?">
-            <img src="images/ig-2.png" alt="Publicación: Mi hijo respira raro. ¿Cuándo es urgente?" loading="lazy" />
+            <picture>
+              <source srcset="images/ig-2.webp" type="image/webp">
+              <img src="images/ig-2.jpg" alt="Publicación: Mi hijo respira raro. ¿Cuándo es urgente?" loading="lazy" decoding="async" />
+            </picture>
           </a>
         </figure>
         <figure>
           <a href="https://www.instagram.com/p/DXhVI52DiCX/?img_index=1" target="_blank" rel="noopener" aria-label="Si tu hijo ronca al dormir, vale la pena poner atención.">
-            <img src="images/ig-3.png" alt="Publicación: Si tu hijo ronca al dormir, vale la pena poner atención." loading="lazy" />
+            <picture>
+              <source srcset="images/ig-3.webp" type="image/webp">
+              <img src="images/ig-3.jpg" alt="Publicación: Si tu hijo ronca al dormir, vale la pena poner atención." loading="lazy" decoding="async" />
+            </picture>
           </a>
         </figure>
         <figure>
           <a href="https://www.instagram.com/p/DXXNVuHjg8O/" target="_blank" rel="noopener" aria-label="Una mamá me preguntó en consulta.">
-            <img src="images/ig-4.png" alt="Reel: Una mamá me preguntó en consulta." loading="lazy" />
+            <picture>
+              <source srcset="images/ig-4.webp" type="image/webp">
+              <img src="images/ig-4.jpg" alt="Reel: Una mamá me preguntó en consulta." loading="lazy" decoding="async" />
+            </picture>
           </a>
         </figure>
         <figure>
           <a href="https://www.instagram.com/p/DXNMkznD5lO/?img_index=1" target="_blank" rel="noopener" aria-label="Hay señales en niños que vale la pena observar.">
-            <img src="images/ig-5.png" alt="Publicación: Hay señales en niños que vale la pena observar." loading="lazy" />
+            <picture>
+              <source srcset="images/ig-5.webp" type="image/webp">
+              <img src="images/ig-5.jpg" alt="Publicación: Hay señales en niños que vale la pena observar." loading="lazy" decoding="async" />
+            </picture>
           </a>
         </figure>
         <figure>
           <a href="https://www.instagram.com/p/DXIaMQVjy8X/" target="_blank" rel="noopener" aria-label="Wonder — reflexión clínica.">
-            <img src="images/ig-6.png" alt="Reel: Wonder." loading="lazy" />
+            <picture>
+              <source srcset="images/ig-6.webp" type="image/webp">
+              <img src="images/ig-6.jpg" alt="Reel: Wonder." loading="lazy" decoding="async" />
+            </picture>
           </a>
         </figure>
       </div>
